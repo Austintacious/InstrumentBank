@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204004714) do
+ActiveRecord::Schema.define(version: 20140214010519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "instrument_banks", force: true do |t|
+    t.integer  "instrument_id", null: false
+    t.integer  "user_id",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "instruments", force: true do |t|
     t.string   "type",                null: false
@@ -27,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140204004714) do
     t.string   "size",                null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "instrument_bank_id"
   end
 
   create_table "users", force: true do |t|
@@ -45,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140204004714) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "instrumentbank_id"
+    t.integer  "instrument_bank_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  has_one :instrumentbank
+  has_one :instrument_bank
   has_many :instruments,
-    through: :instrumentbank
+    through: :instrument_bank
 
   validates_presence_of :first_name
   validates_presence_of :last_name
