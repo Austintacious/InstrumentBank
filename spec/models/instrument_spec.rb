@@ -10,7 +10,7 @@ describe Instrument do
   let(:invalid_ages) {[-100, "abc", "1abc2", 0]}
   let(:blanks) {['', nil]}
 
-  it {should belong_to :instrument_bank}
+  it {should belong_to :instrumentbank}
 
   it {should have_valid(:type).when(*valid_types)}
   it {should_not have_valid(:type).when(*invalid_types, *invalid_names, *blanks)}

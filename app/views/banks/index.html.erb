@@ -1,0 +1,33 @@
+<ul>
+  <% if user_signed_in? %>
+    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+  <% else %>
+    <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+    <li><%= link_to 'Sign In', new_user_session_path %></li>
+  <% end %>
+</ul>
+
+<% if user_signed_in? && @user.bank.nil? %>
+  <h1>
+    <%= @user.first_name %> <%= @user.last_name %>'s Bank
+  </h1>
+  <hr>
+  <p>
+    <%= link_to "Get started!", new_bank_path %>
+  </p>
+<% elsif user_signed_in? && !(@user.bank.nil?) %>
+  <h1>
+    <%= @user.first_name %> <%= @user.last_name %>'s Bank
+  </h1>
+  <hr>
+  <div>
+    <p>List individual instruments here</p>
+    <p>
+      <%= link_to "Register an Instrument", new_instrument_path %>
+    </p>
+  </div>
+<% else %>
+  <h1>PlayItForward Instrument Bank</h1>
+  <p>Words that describe roof party Vice flannel irure fingerstache, dreamcatcher quinoa. Roof party do forage, gentrify Wes Anderson church-key dolore flexitarian fugiat selfies before they sold out tousled farm-to-table voluptate Thundercats. Distillery umami food truck, Schlitz plaid proident Truffaut dreamcatcher sapiente tousled sint cornhole asymmetrical keytar voluptate. Hella consequat lomo Austin, in et fugiat. Irony sustainable McSweeney's church-key, whatever Wes Anderson drinking vinegar assumenda sartorial keffiyeh. Freegan do kitsch Godard, delectus fanny pack meggings Vice pickled disrupt nulla. Nihil readymade slow-carb Vice, fingerstache roof party blog shabby chic ugh occupy art party fanny pack.</p>
+  <hr>
+<% end %>  
