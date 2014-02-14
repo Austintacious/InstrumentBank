@@ -6,7 +6,7 @@ describe User do
   let(:blanks) {['', nil]}
 
   it {should have_many :instruments}
-  it {should have_one :instrument_bank}
+  it {should have_one :instrumentbank}
 
   it {should have_valid(:first_name).when("Albus")}
   it {should_not have_valid(:first_name).when(*invalid_names, *blanks)}

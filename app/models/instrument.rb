@@ -1,5 +1,5 @@
 class Instrument < ActiveRecord::Base
-  belongs_to :instrument_bank
+  belongs_to :bank
   belongs_to :user
 
   validates_presence_of :type
