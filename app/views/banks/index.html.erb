@@ -19,12 +19,21 @@
   <h1>
     <%= @user.first_name %> <%= @user.last_name %>'s Bank
   </h1>
+  <h2>
+    <%= @user.bank.title %>
+  </h2>
   <hr>
   <div>
-    <p>List individual instruments here</p>
-    <p>
-      <%= link_to "Register an Instrument", new_instrument_path %>
-    </p>
+    <p>You currently have <%= pluralize(@user.bank.instruments.count, "instrument") %> registered.<br><hr></p>
+    <% @user.bank.instruments.each do |instrument| %>
+      <strong><%= instrument.type %> (ID#<%= instrument.id %>)</strong><br>
+      <%= link_to 'Show', instrument_path(instrument) %> | 
+      <%= link_to 'Edit', edit_instrument_path(instrument) %> | 
+      <%= link_to 'Delete', instrument, method: :delete, data: { confirm: 'Are you sure about that?' } %><br>
+      <br>
+      <hr>
+    <% end %>
+    <p>Would you like to <%= link_to "register an instrument?", new_instrument_path %></p>
   </div>
 <% else %>
   <h1>PlayItForward Instrument Bank</h1>
