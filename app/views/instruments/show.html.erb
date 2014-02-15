@@ -1,24 +1,43 @@
-<h1><%= @instrument.type %> id#<%= @instrument.id %></h1>
+<h1><%= @instrument.type %> (ID# <%= @instrument.id %>)</h1>
 
 <hr>
 
+<p>
 <strong>Size: </strong>
 <%= @instrument.size %>
+</p>
 
+<p>
 <strong>Age: </strong>
 <%= @instrument.age %>
+</p>
 
+<p>
 <strong>Organization: </strong>
 <%= @instrument.organization %>
+</p>
 
+<p>
 <strong>History: </strong>
 <%= @instrument.story %>
+</p>
 
+<p>
 <strong>Borrower's First Name: </strong>
 <%= @instrument.borrower_first_name %>
+</p>
 
+<p>
 <strong>Borrower's Last Name: </strong>
 <%= @instrument.borrower_last_name %>
+</p>
 
+<p>
 <strong>Borrower's Email: </strong>
 <%= @instrument.borrower_email %>
+</p>
+
+<img src="<%= qr_code(200, instrument_path(@instrument)) %>" />
+<br>
+<%= link_to 'Back', root_path %>
+<br>

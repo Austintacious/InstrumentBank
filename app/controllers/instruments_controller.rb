@@ -35,6 +35,11 @@ class InstrumentsController < ApplicationController
     redirect_to instrument_path(@instrument)
   end
 
+  def destroy
+    set_instrument.destroy
+    redirect_to root_path, notice: 'Instrument removed!'
+  end
+
   private
 
   def set_instrument

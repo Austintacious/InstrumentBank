@@ -7,7 +7,7 @@
   <%= f.input :size, collection: ["4/4", "3/4", "1/2", "1/4", "1/8", "1/10", "1/16", "1/32"] %>
   <h3>Who's loaning the instrument out?</h3>
   <%= f.input :organization, label: "Organization" %>
-  <h3>The next three boxes are for the person currently borrowing the instrument</h3>
+  <h3>The next three boxes are for the person currently borrowing the instrument. If the instrument isn't being loaned out, just put "None" in the name boxes, and include your own email.</h3>
   <%= f.input :borrower_first_name, label: "First Name" %>
   <%= f.input :borrower_last_name, label: "Last Name" %>
   <%= f.input :borrower_email, label: "Email" %>
